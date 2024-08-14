@@ -1,0 +1,49 @@
+@*
+    Copyright (c) Just Eat, 2016. All rights reserved.
+    Licensed under the Apache 2.0 license. See the LICENSE file in the project root for full license information.
+*@
+<!DOCTYPE html>
+<html lang="@(Context.Request.Query["lang"].FirstOrDefault() ?? "en")">
+<head>
+    <title>@ViewData["Title"] - Apple Pay JS</title>
+    <meta charset="utf-8" />
+    <meta name="description" content="A sample implementation of Apple Pay JS using ASP.NET Core." />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    @RenderSection("meta", required: false)
+
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a asp-controller="Home" asp-action="Index" class="navbar-brand">Apple Pay JS</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#site-navbar" aria-controls="site-navbar" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="site-navbar">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://github.com/justeat/ApplePayJSSample" rel="noopener" target="_blank" title="Visit this application's GitHub repository">This repository on GitHub</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://developer.apple.com/reference/applepayjs/" rel="noopener" target="_blank" title="Read the Apple Pay JS documentation">Apple Pay JS Documentation</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>Copyright &copy; Just Eat, 2016-@DateTimeOffset.UtcNow.Year. All rights reserved.</p>
+        </footer>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>
